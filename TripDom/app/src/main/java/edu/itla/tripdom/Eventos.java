@@ -1,7 +1,7 @@
 package edu.itla.tripdom;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -14,5 +14,7 @@ public class Eventos extends AppCompatActivity {
 
         Button btnAgregar = findViewById(R.id.btnAgregarEventos);
         ListView ltvEventos = findViewById(R.id.ltvEventos);
+
+       // btnAgregar.setOnClickListener((View));
     }
 }

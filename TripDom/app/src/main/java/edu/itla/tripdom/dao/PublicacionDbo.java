@@ -1,7 +1,6 @@
 package edu.itla.tripdom.dao;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
 import edu.itla.tripdom.entity.Publicacion;
 
@@ -18,7 +17,7 @@ public class PublicacionDbo {
     }
 
     public void crear (Publicacion publicacion) {
-        SQLiteDatabase db
+        //SQLiteDatabase db
 
 
     }

@@ -14,9 +14,10 @@ import edu.itla.tripdom.entity.Usuario;
 
 public class RegistroUsuario extends AppCompatActivity {
     private static final String LOG_T = "RegistroUsuario";
-    UsuarioDbo usuarioDbo;
-    //PublicacionDbo publicacionDbo;
 
+    //PublicacionDbo publicacionDbo;
+    private UsuarioDbo usuarioDbo;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,21 @@ public class RegistroUsuario extends AppCompatActivity {
         Button btnAgregar = findViewById(R.id.btnAgregar);
         Button btnBuscar = findViewById(R.id.btnBuscar);
 
+        Bundle parametros = getIntent().getExtras();
+        if (parametros.containsKey("usuarios")) {
+            usuario = (Usuario) parametros.getSerializable("usuario");
+            txtNombre.setText(usuario.getNombre());
+            txtEmail.setText(usuario.getEmail());
+            txtTelefono.setText(usuario.getTelefono());
+        }
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (usuario == null) {
+                    usuario = new Usuario();
+
+                }
                 Usuario usuario = new Usuario();
                 usuario.setNombre(txtNombre.getText().toString());
                 usuario.setEmail(txtEmail.getText().toString());
@@ -48,11 +61,11 @@ public class RegistroUsuario extends AppCompatActivity {
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
 
-            public void onClick (View view){
+            public void onClick(View view) {
 
                 List<Usuario> usuarios = usuarioDbo.buscar();
 
-                for (Usuario u: usuarios){
+                for (Usuario u : usuarios) {
                     Log.i("ListUsuarios", u.toString());
                 }
 
